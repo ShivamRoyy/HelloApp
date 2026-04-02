@@ -1,30 +1,49 @@
 /**
- * HelloApp.java - A simple Java application that extends the functionality of
- * HelloAppUC1 by accepting a user's name as a command-line argument and displaying
- * a personalized greeting.
+ * HelloApp.java - A simple Java application that accepts a name as a
+ * command-line argument and displays a personalized greeting. If no name
+ * is provided, it defaults to greeting "World".
  *
- * UC 1: Display "Hello World" - The application should display the message
- * "Hello World" to the console when executed.
- * UC 2: Display User Name - The application should accept a user's name as
- * a command-line argument and display a personalized greeting.
+ * UC3: Display "Hello" with a default greeting when no name is provided.
+ * - If a name is provided, it will display "Hello, [Name]!" to the console.
+ * - If no name is provided, it will display "Hello, World!"
+ *
+ * Usage: java HelloApp [name]
  *
  * @author Shivam Kumar
- * @version 1.0
+ * @version 3.0
  * @since UC1
  */
 
-/**
- * Key Concepts of UC 2:
- * 1. Command-line Arguments: Accessing user input via args[] parameter
- * 2. String Concatenation: Combining strings using the + operator
- * 3. System.out.println(): Output to console
- * 4. Array Indexing: Accessing the first argument with args[0]
- */
+// Key Concepts for HelloApp UC3:
+// 1. Command-line Arguments: Accessing user input via args[] parameter
+// 2. Conditional Statements: Using if-else to check argument presence
+// 3. Default Values: Providing a fallback when no arguments are provided
+// 4. String Concatenation: Building the greeting message
+
+// Sample Code for HelloApp UC3:
+// String name;
+// if (args.length == 0) {
+//     name = "World";
+// } else {
+//     name = args[0];
+// }
 
 public class HelloApp {
     public static void main(String[] args) {
-        // Get the name from command-line argument
-        String name = (args.length > 0) ? args[0] : "World";
-        System.out.println("Hello, " + name + "!");
+        // Declare name variable to store the greeting target
+        String name;
+
+        // Check if a name argument was provided
+        if (args.length == 0) {
+            // Default to "World" when no argument is given
+            name = "World";
+        } else {
+            // Use the provided command-line argument as the name
+            name = args[0];
+        }
+
+        // Build and display the personalized greeting
+        String greeting = "Hello, " + name + "!";
+        System.out.println(greeting);
     }
 }
